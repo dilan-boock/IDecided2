@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:context=".MainActivity">
+
+   <include layout="@layout/header"
+       android:id="@+id/header"
+       android:layout_height="100dp"
+       android:layout_width="match_parent"
+       app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Menu Buttons -->
+    <LinearLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toTopOf="@+id/languageButtons"
+        app:layout_constraintVertical_bias="0.5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+            <Button
+                android:id="@+id/but_quadrat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textAlignment="center"
+                android:textColor="@drawable/button_color"
+                android:text="@string/but1" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_quadrat"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but2" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_list"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but3" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_money"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_fortuna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but4" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_fortuna"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_taro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but5" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_taro"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_dnd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but6" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_dnd"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="65dp">
+        <Button
+            android:id="@+id/but_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:text="@string/but7" />
+            <include layout="@layout/info_but"
+                android:id="@+id/info_about"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <!-- Language Switch Buttons -->
+    <LinearLayout
+        android:id="@+id/languageButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/languageRu"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:textAlignment="center"
+            android:textColor="@drawable/button_color"
+            android:textSize="18sp"
+            android:text="@string/butRu" />
+        <Button
+            android:id="@+id/languageEn"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@drawable/button_color"
+            android:layout_marginLeft="5dp"
+            android:textAlignment="center"
+            android:text="@string/butEng" />
+    </LinearLayout>
+
+    <!-- Footer -->
+    <include layout="@layout/footer"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,0 +1,11 @@
+<ImageButton android:id="@+id/image_info_1"
+    android:layout_width="24dp"
+    android:layout_height="24dp"
+    android:scaleType="fitCenter"
+    android:background="@color/transparent"
+    android:src="@drawable/info"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="1dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
