@@ -17,13 +17,50 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintBottom_toTopOf="@+id/languageButtons"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintVertical_bias="0.5"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/vetka"
+            android:layout_marginBottom="-15dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/transparent"
+            android:translationZ="1dp"/>
+        <ImageView
+            android:id="@+id/fortuna"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@drawable/koleso"/>
+        <Button
+            android:id="@+id/but_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@drawable/button_color"
+            android:padding="10dp"
+            android:text="@string/butFortuna"
+            />
+        <ImageButton
+            android:id="@+id/sound_f"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/transparent"/>
+        <TextView
+            android:id="@+id/home_f"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textSize="34sp"/>
+
     </LinearLayout>
 
 
     <!-- Footer -->
     <include layout="@layout/footer"
+        android:id="@+id/footer"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

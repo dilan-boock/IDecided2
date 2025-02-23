@@ -17,14 +17,42 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintBottom_toTopOf="@+id/languageButtons"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintBottom_toTopOf="@+id/footer"
+        app:layout_constraintVertical_bias="0.5"
+        android:gravity="center">
+        <ImageView
+            android:id="@+id/money"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:src="@drawable/money"/>
+        <Button
+            android:id="@+id/but_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@drawable/button_color"
+            android:padding="10dp"
+            android:text="@string/butMoney"
+            />
+        <ImageButton
+            android:id="@+id/sound_m"
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/transparent"/>
+        <TextView
+            android:id="@+id/home_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home"
+            android:textSize="34sp"/>
 
     </LinearLayout>
 
 
     <!-- Footer -->
     <include layout="@layout/footer"
+        android:id="@+id/footer"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

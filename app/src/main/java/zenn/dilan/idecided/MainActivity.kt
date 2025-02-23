@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import zenn.dilan.idecided.fragments.DialogFragmentInfo
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
@@ -125,7 +126,19 @@ class MainActivity : AppCompatActivity() {
     private fun onbutInfoClick(view: View?) {
         view?.let {
             val buttonId = it.id // Получаем ID кнопки
+            val infoFragment = DialogFragmentInfo()
 
+            // Создаём Bundle и добавляем ID кнопки
+            val bundle = Bundle().apply {
+                putInt("buttonId", buttonId)
+            }
+
+            // Устанавливаем Bundle в фрагмент
+            infoFragment.arguments = bundle
+
+            // Отображаем фрагмент
+            val manager = supportFragmentManager
+            infoFragment.show(manager, "infoFragment")
         }
     }
 }

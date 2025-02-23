@@ -10,7 +10,7 @@
     <string name="but7">About</string>
     <string name="butRu">RU</string>
     <string name="butEng">ENG</string>
-    <string name="home">home</string>
+    <string name="home"><u>home</u></string>
     <string name="infoMenu1">Answer 4 questions sequentially, setting the importance level for each of the reasons, and the app will calculate the most profitable solution to your problem!</string>
     <string name="infoMenu2">Enter the pros and cons of your solution sequentially, setting the importance level for each item, and the app will calculate the most profitable solution to your problem!</string>
     <string name="infoMenu3">Don\'t know what decision to make? Flip a coin!</string>
@@ -18,6 +18,7 @@
     <string name="infoMenu5">Nothing could be better than relying on a map drawn by an unknown artist with an abundance of surreal symbols. But... Maybe this particular card will change your life?</string>
     <string name="infoMenu6">Roll a twenty-sided dice from DND for good luck!</string>
     <string name="infoMenu7">Here is information about us</string>
+    <string name="fortunaH">Your prediction for today:</string>
     <string name="infoOut1">Clearly...</string>
     <string name="infoOut2">I get it.</string>
     <string name="infoOut3">Great!</string>
@@ -32,6 +33,7 @@
     <string name="butFortuna">TWIST</string>
     <string name="butMoney">DROP IT OFF</string>
     <string name="butTaro">PULL</string>
+    <string name="butDnd">THROW IT</string>
     <string name="taro1">It symbolizes control, willpower, determination, success, action — how impressive! We all know that with these qualities, anyone can achieve anything! But the inverted version: lack of control, opposition, lack of direction and self—discipline - this is, of course, a real art. It is better to sit back than to embark on an exhausting restructuring of oneself and the development of personal qualities! Feel this motivation, ambition and control! But be careful not to lose your way: life is such a bore without a healthy dose of fear and doubt!</string>
     <string name="taro2">It symbolizes the so-called "thoughtful sitting on the floor", where thoughts devour you from the inside, and the price for your arrogance knocks on the door.
  The awakening? Rebirth? Its all too lofty.
@@ -115,6 +117,28 @@ Chasing a ghostly prize with all your might" - Noize MC</string>
     <string name="taroH20">Star</string>
     <string name="taroH21">Tower</string>
     <string name="taroH22">World</string>
+    <string name="dndH">The Gods of Randomness favor you!</string>
+    <string name="dnd0">You have today + 0 to luck</string>
+    <string name="dnd1">You have today + 1 to luck</string>
+    <string name="dnd2">You have today + 2 to luck</string>
+    <string name="dnd3">You have today + 3 to luck</string>
+    <string name="dnd4">You have today + 4 to luck</string>
+    <string name="dnd5">You have today + 5 to luck</string>
+    <string name="dnd6">You have today + 6 to luck</string>
+    <string name="dnd7">You have today + 7 to luck</string>
+    <string name="dnd8">You have today + 8 to luck</string>
+    <string name="dnd9">You have today + 9 to luck</string>
+    <string name="dnd10">You have today + 10 to luck</string>
+    <string name="dnd11">You have today + 11 to luck</string>
+    <string name="dnd12">You have today + 12 to luck</string>
+    <string name="dnd13">You have today + 13 to luck</string>
+    <string name="dnd14">You have today + 14 to luck</string>
+    <string name="dnd15">You have today + 15 to luck</string>
+    <string name="dnd16">You have today + 16 to luck</string>
+    <string name="dnd17">You have today + 17 to luck</string>
+    <string name="dnd18">You have today + 18 to luck</string>
+    <string name="dnd19">You have today + 19 to luck</string>
+    <string name="dnd20">You have today + 20 to luck</string>
     <string name="onas1">Greetings!</string>
     <string name="onas2">My name is Dylan and I am a novice application developer.</string>
     <string name="onas3">I really hope you enjoyed my first app :)</string>

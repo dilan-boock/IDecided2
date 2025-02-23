@@ -18,4 +18,12 @@
         <item name="android:background">@drawable/button</item>
         <item name="android:padding">10dp</item>
     </style>
+
+    <style name="CustomDialog">
+        <item name="android:background">@color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:buttonStyle">@style/CustomButton</item>
+    </style>
+
 </resources>
