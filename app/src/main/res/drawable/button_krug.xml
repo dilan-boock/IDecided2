@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_pressed="true" >
+        <layer-list>
+            <!-- Слой для тени -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1000dp" />
+                    <solid android:color="@android:color/transparent" />
+                    <stroke android:width="3dp" android:color="@color/white10" />
+                    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="3dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle"  >
+                    <corners android:radius="1000dp" />
+                    <stroke android:width="3dp" android:color="@color/black" />
+                    <solid android:color="@color/white10"/> <!-- Серый фон при нажатии -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_selected="true" >
+        <layer-list>
+            <!-- Слой для тени -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1000dp" />
+                    <solid android:color="@android:color/transparent" />
+                    <stroke android:width="3dp" android:color="@color/white10" />
+                    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="3dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle"  >
+                    <corners android:radius="1000dp" />
+                    <stroke android:width="3dp" android:color="@color/black" />
+                    <solid android:color="@color/white10"/> <!-- Серый фон при нажатии -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="true">
+        <layer-list>
+            <!-- Слой для тени -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1000dp" />
+                    <solid android:color="@android:color/transparent" />
+                    <stroke android:width="3dp" android:color="@color/white10" />
+                    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="3dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle"  >
+                    <corners android:radius="1000dp" />
+                    <stroke android:width="3dp" android:color="@color/black" />
+                    <solid android:color="@color/white"/> <!-- Белый фон -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <!-- Слой для тени -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1000dp" />
+                    <solid android:color="@android:color/transparent" />
+                    <stroke android:width="3dp" android:color="@color/white10" />
+                    <padding android:left="0dp" android:top="0dp" android:right="0dp" android:bottom="3dp" />
+                </shape>
+            </item>
+            <!-- Основной слой -->
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1000dp" />
+                    <stroke android:width="3dp" android:color="@color/black" />
+                    <solid android:color="@color/white"/> <!-- Белый фон -->
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

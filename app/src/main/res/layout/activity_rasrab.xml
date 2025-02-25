@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
                     android:textSize="30sp"
-                    android:textColor="#8B0000"
+                    android:textColor="@color/brown"
                     android:text="https://boosty.to/dilan_zenn"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/transparent"
-                    android:textColor="#8B0000"
+                    android:textColor="@color/brown"
                     android:textSize="30sp"
                     android:text="https://t.me/dilanzenn"/>
 

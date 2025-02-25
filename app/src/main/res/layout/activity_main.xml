@@ -32,14 +32,16 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="65dp"
             android:layout_marginLeft="65dp">
+
             <Button
                 android:id="@+id/but_quadrat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:text="@string/but1"
                 android:textAlignment="center"
-                android:textColor="@drawable/button_color"
-                android:text="@string/but1" />
+                android:textColor="@drawable/button_color" />
+
             <include layout="@layout/info_but"
                 android:id="@+id/info_quadrat"/>
         </RelativeLayout>

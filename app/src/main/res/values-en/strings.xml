@@ -11,6 +11,7 @@
     <string name="butRu">RU</string>
     <string name="butEng">ENG</string>
     <string name="home"><u>home</u></string>
+    <string name="close"><u>close</u></string>
     <string name="infoMenu1">Answer 4 questions sequentially, setting the importance level for each of the reasons, and the app will calculate the most profitable solution to your problem!</string>
     <string name="infoMenu2">Enter the pros and cons of your solution sequentially, setting the importance level for each item, and the app will calculate the most profitable solution to your problem!</string>
     <string name="infoMenu3">Don\'t know what decision to make? Flip a coin!</string>

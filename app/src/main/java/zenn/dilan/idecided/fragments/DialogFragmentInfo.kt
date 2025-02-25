@@ -79,27 +79,33 @@ class DialogFragmentInfo: DialogFragment() {
                 textTitle.text = getString(R.string.but1)
                 textMessage.text = getString(R.string.infoMenu1)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_list){
+            }
+            else if(buttonId == R.id.info_list){
                 textTitle.text = getString(R.string.but2)
                 textMessage.text = getString(R.string.infoMenu2)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_money){
+            }
+            else if(buttonId == R.id.info_money){
                 textTitle.text = getString(R.string.but3)
                 textMessage.text = getString(R.string.infoMenu3)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_fortuna){
+            }
+            else if(buttonId == R.id.info_fortuna){
                 textTitle.text = getString(R.string.but4)
                 textMessage.text = getString(R.string.infoMenu4)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_taro){
+            }
+            else if(buttonId == R.id.info_taro){
                 textTitle.text = getString(R.string.but5)
                 textMessage.text = getString(R.string.infoMenu5)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_dnd){
+            }
+            else if(buttonId == R.id.info_dnd){
                 textTitle.text = getString(R.string.but6)
                 textMessage.text = getString(R.string.infoMenu6)
                 button.text = getString(R.string.infoOut1)
-            } else if(buttonId == R.id.info_about){
+            }
+            else if(buttonId == R.id.info_about){
                 textTitle.text = getString(R.string.but7)
                 textMessage.text = getString(R.string.infoMenu7)
                 button.text = getString(R.string.infoOut1)
@@ -494,7 +500,7 @@ class DialogFragmentInfo: DialogFragment() {
 
             }
             alertDialog.window?.setDimAmount(0.9F);
-            alertDialog.window?.setLayout(WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT)
+            alertDialog.window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
             alertDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             alertDialog.window?.setGravity(Gravity.CENTER)
 

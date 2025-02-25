@@ -8,6 +8,8 @@
         <item name="android:fontFamily">@font/rosarium</item>
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:buttonStyle">@style/CustomButton</item>
+        <item name="android:ratingBarStyle">@style/CustomRatingBar</item>
+        <item name="android:editTextStyle">@style/CustomEditText</item>
     </style>
 
     <style name="CustomButton">
@@ -24,6 +26,24 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.5</item>
         <item name="android:buttonStyle">@style/CustomButton</item>
+    </style>
+
+    <style name="CustomRatingBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/custom_rating</item>
+        <item name="android:left">10dp</item>
+        <item name="android:minHeight">40dip</item>
+        <item name="android:maxHeight">40dip</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomEditText" parent="@android:style/Widget.RatingBar">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
 </resources>
