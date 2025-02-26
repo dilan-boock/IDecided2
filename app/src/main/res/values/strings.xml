@@ -101,7 +101,9 @@
     <string name="taroH20">Звезда</string>
     <string name="taroH21">Башня</string>
     <string name="taroH22">Мир</string>
+    <string name="methods">РЕЗУЛЬТАТ</string>
     <string name="dndH">Вам благоволят Боги Рандома!</string>
+    <string name="dndH1">Упс!!!</string>
     <string name="dnd0">У вас сегодня + 0 к удаче</string>
     <string name="dnd1">У вас сегодня + 1 к удаче</string>
     <string name="dnd2">У вас сегодня + 2 к удаче</string>

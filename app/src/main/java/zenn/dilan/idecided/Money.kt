@@ -60,8 +60,8 @@ class Money : AppCompatActivity() {
 
         val rotationAnimator = ObjectAnimator.ofFloat(image, "rotation", 0f, 360f)
         image.setImageResource(R.drawable.money)
-        rotationAnimator.setDuration(400)
-        rotationAnimator.repeatCount = 10
+        rotationAnimator.setDuration(200)
+        rotationAnimator.repeatCount = 20
 
         rotationAnimator.addUpdateListener { // Задаем обновление угла вращения в каждом шаге анимации
             val animatedValue = it.animatedValue as Float

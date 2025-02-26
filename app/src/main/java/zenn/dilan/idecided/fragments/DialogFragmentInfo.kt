@@ -32,6 +32,9 @@ class DialogFragmentInfo: DialogFragment() {
             val builder = AlertDialog.Builder(it, R.style.CustomDialog)
             val buttonId = arguments?.getInt("buttonId")
             val randomFortuna = arguments?.getInt("random")
+            val buttonBox = arguments?.getString("buttonBox")
+            val res = arguments?.getInt("res")
+
             val inflater = layoutInflater
             val dialogLayout = inflater.inflate(R.layout.activity_dialog_info, null) // Замените на Ваш layout
             val textTitle: TextView = dialogLayout.findViewById<TextView>(R.id.textTitle)
@@ -115,6 +118,7 @@ class DialogFragmentInfo: DialogFragment() {
                 textTitle.text = getString(R.string.dndH)
 
                 if(random == 0){
+                    textTitle.text = getString(R.string.dndH1)
                     textMessage.text = getString(R.string.dnd0)
                 }
                 else if(random == 1){
@@ -481,10 +485,38 @@ class DialogFragmentInfo: DialogFragment() {
                 }
                 button.text = getString(R.string.infoOut3)
             }
+            else if(buttonId == R.id.info_quadrat){
+                textTitle.text = getString(R.string.but3)
+                textMessage.text = getString(R.string.infoMenu3)
+                button.text = getString(R.string.infoOut1)
+            }
+            else if(buttonId == R.id.info_list){
+                textTitle.text = getString(R.string.but4)
+                textMessage.text = getString(R.string.infoMenu4)
+                button.text = getString(R.string.infoOut1)
+            }
             else{
-                textTitle.text = "НЕ ГРУЗИТ"
-                textMessage.text = "НЕ ГРУЗИТ"
-                button.text = "НЕ ГРУЗИТ"
+                textTitle.text = getString(R.string.methods)
+                if (buttonBox == "list"){
+                    if (res == -1){
+                        textMessage.text = getString(R.string.mess1)
+                        button.text = getString(R.string.infoOut1)
+                    }
+                    else if (res == 1){
+                        textMessage.text = getString(R.string.mess2)
+                        button.text = getString(R.string.infoOut2)
+                    }
+                    else{
+                        textMessage.text = getString(R.string.mess3)
+                        button.text = getString(R.string.infoOut3)
+                    }
+
+                }
+                else {
+                    textTitle.text = "НЕ ГРУЗИТ"
+                    textMessage.text = "НЕ ГРУЗИТ"
+                    button.text = "НЕ ГРУЗИТ"
+                }
             }
 
 

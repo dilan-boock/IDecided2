@@ -10,3 +10,5 @@ class SharedViewModel : ViewModel() {
     val dataQuadratMinus2 = mutableListOf<Pair<String?, Float?>>()
     val dataQuadratPlus2 = mutableListOf<Pair<String?, Float?>>()
 }
+
+

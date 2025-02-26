@@ -119,6 +119,8 @@ Chasing a ghostly prize with all your might" - Noize MC</string>
     <string name="taroH21">Tower</string>
     <string name="taroH22">World</string>
     <string name="dndH">The Gods of Randomness favor you!</string>
+    <string name="dndH1">OOPS!!!</string>
+    <string name="methods">RESULT</string>
     <string name="dnd0">You have today + 0 to luck</string>
     <string name="dnd1">You have today + 1 to luck</string>
     <string name="dnd2">You have today + 2 to luck</string>

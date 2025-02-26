@@ -74,11 +74,11 @@ class DialogFragmentAdd: DialogFragment() {
                 val ratingValue = ratingBar.rating
 
                 if (inputText.isEmpty()) {
-                    inputField.error = "Введите текст" // Подсказка для незаполненного поля
+                    inputField.error = getString(R.string.errorF2) // Подсказка для незаполненного поля
                     inputField.requestFocus() // Установка фокуса на поле ввода
                 } else if (ratingValue == 0f) {
                     // Подсказка для незаполненного рейтинга
-                    Toast.makeText(it.context, "Пожалуйста, выберите рейтинг", Toast.LENGTH_SHORT)
+                    Toast.makeText(it.context, getString(R.string.errorF1), Toast.LENGTH_SHORT)
                         .show()
                     ratingBar.requestFocus() // Установка фокуса на рейтинг
                 } else if (inputText.isNotEmpty() && ratingValue > 0f) {

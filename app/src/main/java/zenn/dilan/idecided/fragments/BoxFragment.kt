@@ -90,17 +90,22 @@ class BoxFragment : Fragment(), DataReceiver {
         val view = inflater.inflate(R.layout.fragment_box, container, false)
         val title: TextView = view.findViewById(R.id.listTittle)
         val butAdd: ImageButton = view.findViewById(R.id.btn_add)
-        val butResult: ImageButton = view.findViewById(R.id.btn_result)
         butAdd.setOnClickListener(this::onbutAddClick)
-        butResult.setOnClickListener(this::onbutResClick)
         title.text = textTitle
-
+        if (image == "list"){
+            title.textSize = 30f
+        }
+        else{
+            title.textSize = 20f
+        }
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         updateMessage() // Теперь вызываем здесь
+        val butResult: LinearLayout = view.findViewById(R.id.btn_result)
+        butResult.setOnClickListener(this::onbutResClick)
     }
 
     private fun onbutAddClick(view: View) {
@@ -113,39 +118,31 @@ class BoxFragment : Fragment(), DataReceiver {
     private fun updateMessage() {
         val frayLay: LinearLayout = view?.findViewById(R.id.fray_lay) ?: return
         val drawable: ImageView = view?.findViewById(R.id.imageViewList) ?: return
-        val butResult: ImageButton = view?.findViewById(R.id.btn_result) ?: return
+        val imageResult: ImageView = view?.findViewById(R.id.image_result) ?: return
         frayLay.removeAllViews() // Очищаем текущие элементы
+        if (image == "list"){
+            if (viewModel.dataListPlus.isEmpty() || viewModel.dataListMinus.isEmpty()) {
+                imageResult.setImageResource(R.drawable.result_passiv) // Установите изображение по умолчанию
+            } else {
+                imageResult.setImageResource(R.drawable.result_activ) // Установите изображение, когда списки не пустые
+            }
+        }
+        else {
+            if (viewModel.dataQuadratPlus1.isEmpty() || viewModel.dataQuadratPlus2.isEmpty() || viewModel.dataQuadratMinus1.isEmpty() || viewModel.dataQuadratMinus2.isEmpty()) {
+                imageResult.setImageResource(R.drawable.result_passiv) // Установите изображение по умолчанию
+            } else {
+                imageResult.setImageResource(R.drawable.result_activ) // Установите изображение, когда списки не пустые
+            }
+        }
+
 
         if (dataList.isEmpty()) {
-
             // Установите изображение, если dataList пуст
             if(image == "list"){
                 drawable.setImageResource(R.drawable.croco_null)
-                if (viewModel.dataListPlus.isEmpty() || viewModel.dataListMinus.isEmpty()) {
-                    butResult.setImageResource(R.drawable.result_passiv) // Установите изображение по умолчанию
-                    butResult.setOnClickListener {
-                        Toast.makeText(context, "Сначала заполните все листы", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    butResult.setImageResource(R.drawable.result_activ) // Установите изображение, когда списки не пустые
-                    butResult.setOnClickListener {
-                        // Действие при нажатии, когда списки заполнены
-                    }
-                }
             }
             else{
                 drawable.setImageResource(R.drawable.cat_null)
-                if (viewModel.dataQuadratPlus1.isEmpty() || viewModel.dataQuadratPlus2.isEmpty() || viewModel.dataQuadratMinus1.isEmpty() || viewModel.dataQuadratMinus2.isEmpty()) {
-                    butResult.setImageResource(R.drawable.result_passiv) // Установите изображение по умолчанию
-                    butResult.setOnClickListener {
-                        Toast.makeText(context, "Сначала заполните все листы", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    butResult.setImageResource(R.drawable.result_activ) // Установите изображение, когда списки не пустые
-                    butResult.setOnClickListener {
-                        // Действие при нажатии, когда списки заполнены
-                    }
-                }
             }
         } else {
             drawable.setImageResource(R.color.transparent)
@@ -249,18 +246,144 @@ class BoxFragment : Fragment(), DataReceiver {
     }
 
     private fun onbutResClick(view: View) {
-        val butResult: ImageButton = view.findViewById(R.id.btn_result)
-        if (viewModel.dataListPlus.isEmpty() || viewModel.dataListMinus.isEmpty()) {
-            butResult.setImageResource(R.drawable.result_passiv) // Установите изображение по умолчанию
-            butResult.setOnClickListener {
-                Toast.makeText(context, "Сначала заполните все листы", Toast.LENGTH_SHORT).show()
-            }
-        } else {
-            butResult.setImageResource(R.drawable.result_activ) // Установите изображение, когда списки не пустые
-            butResult.setOnClickListener {
-                // Действие при нажатии, когда списки заполнены
+        if (image == "list"){
+            if (viewModel.dataListPlus.isEmpty() || viewModel.dataListMinus.isEmpty()) {
+                Toast.makeText(context, getString(R.string.errorL), Toast.LENGTH_SHORT).show()
+            } else {
+                // Считаем сумму rat для dataListPlus
+                val sumPlus = viewModel.dataListPlus.mapNotNull { it.second }.sum() // Предполагается, что у элементов есть свойство rat
+
+                // Считаем сумму rat для dataListMinus
+                val sumMinus = viewModel.dataListMinus.mapNotNull { it.second }.sum() // Предполагается, что у элементов есть свойство rat
+
+                // Сравниваем суммы
+                if (sumPlus > sumMinus) {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", 1)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                } else if (sumPlus < sumMinus) {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", -1)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                } else {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", 0)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                }
+
             }
         }
+        else {
+            if (viewModel.dataQuadratPlus1.isEmpty() || viewModel.dataQuadratPlus2.isEmpty() || viewModel.dataQuadratMinus1.isEmpty() || viewModel.dataQuadratMinus2.isEmpty()) {
+                Toast.makeText(context, getString(R.string.errorL), Toast.LENGTH_SHORT).show()
+            } else {
+
+                val sumPlus = viewModel.dataQuadratPlus1.mapNotNull { it.second }.sum() + viewModel.dataQuadratPlus2.mapNotNull { it.second }.sum() // Предполагается, что у элементов есть свойство rat
+
+                // Считаем сумму rat для dataListMinus
+                val sumMinus = viewModel.dataQuadratMinus1.mapNotNull { it.second }.sum() + viewModel.dataQuadratMinus2.mapNotNull { it.second }.sum()// Предполагается, что у элементов есть свойство rat
+
+                // Сравниваем суммы
+                if (sumPlus > sumMinus) {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", 1)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                } else if (sumPlus < sumMinus) {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", -1)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                } else {
+                    view.let {
+                        val buttonId = it.id // Получаем ID кнопки
+                        val infoFragment = DialogFragmentInfo()
+
+                        // Создаём Bundle и добавляем ID кнопки
+                        val bundle = Bundle().apply {
+                            putString("buttonBox", "list")
+                            putInt ("res", 0)
+                        }
+
+                        // Устанавливаем Bundle в фрагмент
+                        infoFragment.arguments = bundle
+
+                        // Отображаем фрагмент
+                        val manager = parentFragmentManager
+                        infoFragment.show(manager, "infoFragment")
+                    }
+                }
+            }
+        }
+
     }
 
 }
