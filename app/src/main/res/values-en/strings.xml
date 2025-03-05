@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IDecided</string>
-    <string name="but1">The Descartes Square</string>
+    <string name="but1">Descartes Square</string>
     <string name="but2">Balance Sheet</string>
     <string name="but3">Coin</string>
-    <string name="but4">The Wheel of Fortune</string>
-    <string name="but5">The Tarot Card Layout</string>
+    <string name="but4">Fortune</string>
+    <string name="but5">Tarot Card</string>
     <string name="but6">1d20</string>
     <string name="but7">About</string>
     <string name="butRu">RU</string>

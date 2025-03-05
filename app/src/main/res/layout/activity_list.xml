@@ -7,57 +7,68 @@
     android:layout_height="match_parent"
     tools:context=".List">
 
-    <include layout="@layout/header"
+    <!-- Header -->
+    <include
+        layout="@layout/header"
         android:id="@+id/header"
+        android:layout_width="0dp"
         android:layout_height="100dp"
-        android:layout_width="match_parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Основной контент (ScrollView и кнопки) -->
     <LinearLayout
         android:id="@+id/lay1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/header"
-        app:layout_constraintBottom_toTopOf="@layout/footer"
         android:layout_margin="30dp"
-        app:layout_constraintVertical_bias="0.5">
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toTopOf="@id/footer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ScrollView -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@color/transparent"
-            android:gravity="center">
+            android:fillViewport="true"> <!-- fillViewport гарантирует, что ScrollView заполнит все доступное пространство -->
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:background="@color/transparent"
-                app:layout_constraintTop_toBottomOf="@+id/lay1"
-                app:layout_constraintBottom_toTopOf="@+id/layBut"
                 android:layout_gravity="center_horizontal">
 
+                <!-- Fragment Container -->
                 <FrameLayout
                     android:id="@+id/fragmentList"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/transparent"
-                    android:orientation="horizontal"
-                    app:layout_constraintBottom_toTopOf="@+id/layBut"
-                    app:layout_constraintTop_toBottomOf="@+id/lay1">
-
-
-                </FrameLayout>
+                    android:background="@color/transparent" />
             </LinearLayout>
         </ScrollView>
-        <include layout="@layout/button_box" />
 
-
+        <!-- Кнопки -->
+        <include
+            layout="@layout/button_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <!-- Footer -->
-    <include layout="@layout/footer"
-        app:layout_constraintBottom_toBottomOf="parent" />
+    <include
+        layout="@layout/footer"
+        android:id="@+id/footer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

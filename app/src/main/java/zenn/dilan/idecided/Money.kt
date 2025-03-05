@@ -6,6 +6,7 @@ import android.animation.ObjectAnimator
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -18,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class Money : AppCompatActivity() {
     private lateinit var mPlayer: MediaPlayer
@@ -88,12 +90,33 @@ class Money : AppCompatActivity() {
         })
 
 
-        rotationAnimator.start() // Запускаем анимацию
-        if (isSoundEnabled) {
-
-        } else {
-            mPlayer.start() // Запускаем звук
+        // Сброс MediaPlayer перед воспроизведением
+        if (mPlayer.isPlaying) {
+            mPlayer.stop()
         }
+        mPlayer.reset()
+        mPlayer.seekTo(0) // Сброс позиции воспроизведения
+        try {
+            val assetFileDescriptor = resources.openRawResourceFd(R.raw.sound_money)
+            mPlayer.setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.length)
+            assetFileDescriptor.close()
+        } catch (e: IOException) {
+            Log.e("MediaPlayer", "Error setting data source", e)
+            return
+        }
+        mPlayer.setOnPreparedListener {
+            if (!isSoundEnabled) {
+                mPlayer.start() // Запуск воспроизведения после подготовки
+            }
+        }
+        try {
+            mPlayer.prepareAsync() // Асинхронная подготовка
+        } catch (e: IllegalStateException) {
+            Log.e("MediaPlayer", "IllegalStateException: ${e.message}")
+            e.printStackTrace()
+        }
+
+        rotationAnimator.start() // Запускаем анимацию
         button_active.isEnabled = false //Выключаем кнопку, на время анимации
         button_active.isSelected = true
 

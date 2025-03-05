@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Решала</string>
-    <string name="but1">Квадрат декарта</string>
+    <string name="but1">Квадрат Декарта</string>
     <string name="but2">Лист баланса</string>
     <string name="but3">Монетка</string>
     <string name="but4">Колесо фортуны</string>
