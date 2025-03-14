@@ -92,7 +92,9 @@ class DialogFragmentAdd: DialogFragment() {
                     Toast.makeText(it.context, getString(R.string.errorF1), Toast.LENGTH_SHORT)
                         .show()
                     ratingBar.requestFocus() // Установка фокуса на рейтинг
-                    listener?.onDataReceived(inputText, ratingValue)
+                } else {
+                    // Если оба поля заполнены корректно
+                    listener?.onDataReceived(inputText, ratingValue) // Передача данных через listener
                     alertDialog.dismiss() // Закрытие диалога
                 }
             }
